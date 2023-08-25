@@ -103,11 +103,11 @@ class WordleView {
         if (notification && btnRestart) {
             if (playerWon) {
                 notification.classList.add('notificacao-acerto');
-                notification.innerHTML = 'Parabéns, você venceu! Deseja jogar novamente?';
+                notification.innerHTML = 'Parabéns, você venceu!';
             }
             else {
                 notification.classList.add('notificacao-erro');
-                notification.innerHTML = `Infelizmente, você perdeu. A palavra era ${this.game.secretWord}! Deseja jogar novamente?`;
+                notification.innerHTML = `Infelizmente, você perdeu. A palavra era ${this.game.secretWord}!`;
             }
             notification.style.display = 'block';
             btnRestart.style.display = 'block';
