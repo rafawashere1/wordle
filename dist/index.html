@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Termo TypeScript</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="js/wordle-view.js" defer></script>
+
+</head>
+<body>
+  <div id="pnlContent" class="content">
+    <h1>TERMO</h1>
+
+    <div id="pnlWordle" class="grid-wordle">
+      <div id="line0" class="line">
+        <div id="line0-letter0" class="letter"></div>
+        <div id="line0-letter1" class="letter"></div>
+        <div id="line0-letter2" class="letter"></div>
+        <div id="line0-letter3" class="letter"></div>
+        <div id="line0-letter4" class="letter"></div>
+      </div>
+      
+      <div id="line1" class="line">
+        <div id="line1-letter0" class="letter"></div>
+        <div id="line1-letter1" class="letter"></div>
+        <div id="line1-letter2" class="letter"></div>
+        <div id="line1-letter3" class="letter"></div>
+        <div id="line1-letter4" class="letter"></div>
+      </div>
+
+      <div id="line2" class="line">
+        <div id="line2-letter0" class="letter"></div>
+        <div id="line2-letter1" class="letter"></div>
+        <div id="line2-letter2" class="letter"></div>
+        <div id="line2-letter3" class="letter"></div>
+        <div id="line2-letter4" class="letter"></div>
+      </div>
+      
+      <div id="line3" class="line">
+        <div id="line3-letter0" class="letter"></div>
+        <div id="line3-letter1" class="letter"></div>
+        <div id="line3-letter2" class="letter"></div>
+        <div id="line3-letter3" class="letter"></div>
+        <div id="line3-letter4" class="letter"></div>
+      </div>
+
+      <div id="line4" class="line">
+        <div id="line4-letter0" class="letter"></div>
+        <div id="line4-letter1" class="letter"></div>
+        <div id="line4-letter2" class="letter"></div>
+        <div id="line4-letter3" class="letter"></div>
+        <div id="line4-letter4" class="letter"></div>
+      </div>
+    </div>
+
+    <div class="keyboard">
+      <div class="row">
+        <button class="key" data-letter="Q">Q</button>
+        <button class="key" data-letter="W">W</button>
+        <button class="key" data-letter="E">E</button>
+        <button class="key" data-letter="R">R</button>
+        <button class="key" data-letter="T">T</button>
+        <button class="key" data-letter="Y">Y</button>
+        <button class="key" data-letter="U">U</button>
+        <button class="key" data-letter="I">I</button>
+        <button class="key" data-letter="O">O</button>
+        <button class="key" data-letter="P">P</button>
+      </div>
+      <div class="row">
+        <button class="key" data-letter="A">A</button>
+        <button class="key" data-letter="S">S</button>
+        <button class="key" data-letter="D">D</button>
+        <button class="key" data-letter="F">F</button>
+        <button class="key" data-letter="G">G</button>
+        <button class="key" data-letter="H">H</button>
+        <button class="key" data-letter="J">J</button>
+        <button class="key" data-letter="K">K</button>
+        <button class="key" data-letter="L">L</button>
+        <button id="btnEnter" class="enter">Enter</button>
+      </div>
+      <div class="row">
+        <button class="key" data-letter="Z">Z</button>
+        <button class="key" data-letter="X">X</button>
+        <button class="key" data-letter="C">C</button>
+        <button class="key" data-letter="V">V</button>
+        <button class="key" data-letter="B">B</button>
+        <button class="key" data-letter="N">N</button>
+        <button class="key" data-letter="M">M</button>
+          <button id="btnBackspace" class="backspace">Del</button>
+      </div>
+  </div>
+
+  <div id="notification" class="notificacao">
+  </div>
+  <div id="reset" class ="reset">
+    <button id="btnReset" class="btn-reset">Reiniciar</button>
+  </div>
+  </div>
+</body>
+</html>

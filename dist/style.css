@@ -1,0 +1,117 @@
+@font-face {
+  font-family: 'Mitr';
+  src: url('../src/fonts/Mitr-ExtraLight.ttf') format('truetype');
+  src: url('../src/fonts/Mitr-Light.ttf') format('truetype');
+  src: url('../src/fonts/Mitr-Medium.ttf') format('truetype');
+  src: url('../src/fonts/Mitr-Regular.ttf') format('truetype');
+  src: url('../src/fonts/Mitr-SemiBold.ttf') format('truetype');
+  src: url('../src/fonts/Mitr-Bold.ttf') format('truetype');
+}
+
+body, html { margin: 0; min-height: 100vh; }
+
+body { 
+  font-family: 'Mitr', sans-serif;
+
+  background-color: #6E5C62;
+  color: #ffffff;
+}
+
+.content { 
+  padding: 1%;
+  
+  gap: 10px;
+
+  display: grid;
+  place-items: center;
+}
+
+.grid-wordle {
+  display: grid;
+  grid-template-rows: repeat(5, 65px);
+  gap: 7px;
+
+  font-family: 'Mitr', sans-serif;
+
+  margin-bottom: 2%;
+}
+
+.grid-wordle > .line {
+  display: grid;
+  grid-template-columns: repeat(5, 65px);
+  gap: 7px;
+}
+
+.grid-wordle > .line > .letter {
+  display: grid;
+  place-items: center;
+  height: 100%;
+
+  background-color: #615458;
+  color: #ffffff;
+  border-radius: 3px;
+
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.keyboard {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 20px;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.row > button:hover {
+  font-weight: 700;
+  background-color: #5e474e;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.key, .enter, .backspace {
+  padding: 12px 25px;
+  background-color: #4C4347;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: 'Mitr', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.notification {
+  display: none;
+}
+
+.reset {
+  display: none;
+}
+
+.reset > button {
+  height: 50px;
+  width: 150px;
+
+  background-color: #3b3637;
+  color: white;
+
+  cursor: pointer;
+
+  font-family: 'Mitr', sans-serif;
+  font-weight: 700;
+
+  border: none;
+  border-radius: 5px;
+}
+
+.reset > button:hover {
+  background-color: #464141;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
