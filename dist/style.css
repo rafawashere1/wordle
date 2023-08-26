@@ -2,7 +2,10 @@ body, html { margin: 0; min-height: 100vh; }
 
 body { 
   font-family: 'Mitr', sans-serif;
-
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
   background-color: #6E5C62;
   color: #ffffff;
 }
