@@ -7,54 +7,47 @@ export class Wordle {
     validateLetter(word) {
         const validations = new Array(word.length);
         for (let i = 0; i < word.length; i++) {
-            if (word[i] === this.secretWord[i]) {
+            if (this.areLettersEqualWithoutAccent(word[i], this.secretWord[i])) {
                 validations[i] = LetterValidation.Correct;
             }
-            else if (this.secretWord.includes(word[i])) {
-                validations[i] = LetterValidation.IncorrectPosition;
-            }
             else {
-                validations[i] = LetterValidation.NonExistent;
+                let found = false;
+                for (const char of this.secretWord) {
+                    if (this.areLettersEqualWithoutAccent(word[i], char)) {
+                        found = true;
+                        break;
+                    }
+                }
+                if (found) {
+                    validations[i] = LetterValidation.IncorrectPosition;
+                }
+                else {
+                    validations[i] = LetterValidation.NonExistent;
+                }
             }
         }
         return validations;
     }
     playerWon(word) {
-        return word == this.secretWord;
+        return this.areLettersEqualWithoutAccent(word, this.secretWord);
     }
     playerLost() {
         return this.attempts == 5;
     }
     getRandomWord() {
         const words = [
-            "ABRIR",
-            "AMIGO",
-            "BEBER",
-            "BOLDO",
-            "CAIXA",
-            "CASAL",
-            "CORPO",
-            "DEDOS",
-            "DENTE",
-            "DIZER",
-            "ERROS",
-            "FALAR",
-            "FESTA",
-            "FOGAO",
-            "GANHO",
-            "GIRAR",
-            "GRITO",
-            "HORAS",
-            "JOGOS",
-            "JULHO",
-            "LIMAO",
-            "LOUCO",
-            "MAIOR",
-            "MELAO",
+            "MELÃO",
             "MOLHO"
         ];
         const randomIndex = Math.floor(Math.random() * words.length);
         return words[randomIndex];
+    }
+    areLettersEqualWithoutAccent(letter1, letter2) {
+        const normalize = (s) => s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+        return normalize(letter1).toLowerCase() === normalize(letter2).toLowerCase();
+    }
+    normalizeLetterWithoutAccent(letter) {
+        return letter.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
     }
 }
 window.addEventListener('load', () => new Wordle());

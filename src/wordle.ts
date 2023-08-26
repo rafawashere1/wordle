@@ -12,22 +12,31 @@ export class Wordle {
 
   validateLetter(word: string): LetterValidation[] {
     const validations: LetterValidation[] = new Array<LetterValidation>(word.length);
-
+  
     for (let i = 0; i < word.length; i++) {
-      if (word[i] === this.secretWord[i]) {
+      if (this.areLettersEqualWithoutAccent(word[i], this.secretWord[i])) {
         validations[i] = LetterValidation.Correct;
-      } else if (this.secretWord.includes(word[i])) {
-        validations[i] = LetterValidation.IncorrectPosition;
       } else {
-        validations[i] = LetterValidation.NonExistent;
+        let found = false;
+        for (const char of this.secretWord) {
+          if (this.areLettersEqualWithoutAccent(word[i], char)) {
+            found = true;
+            break;
+          }
+        }
+        if (found) {
+          validations[i] = LetterValidation.IncorrectPosition;
+        } else {
+          validations[i] = LetterValidation.NonExistent;
+        }
       }
     }
-
+  
     return validations;
   }
 
   playerWon(word: string): boolean {
-    return word == this.secretWord;
+    return this.areLettersEqualWithoutAccent(word, this.secretWord);
   }
 
   playerLost(): boolean {
@@ -36,36 +45,25 @@ export class Wordle {
 
   getRandomWord(): string {
     const words: string[] = [
-      "ABRIR",
-      "AMIGO",
-      "BEBER",
-      "BOLDO",
-      "CAIXA",
-      "CASAL",
-      "CORPO",
-      "DEDOS",
-      "DENTE",
-      "DIZER",
-      "ERROS",
-      "FALAR",
-      "FESTA",
-      "FOGAO",
-      "GANHO",
-      "GIRAR",
-      "GRITO",
-      "HORAS",
-      "JOGOS",
-      "JULHO",
-      "LIMAO",
-      "LOUCO",
-      "MAIOR",
-      "MELAO",
+
+      "MELÃO",
       "MOLHO"
     ];
 
     const randomIndex: number = Math.floor(Math.random() * words.length);
 
     return words[randomIndex];
+  }
+
+  areLettersEqualWithoutAccent(letter1: string, letter2: string): boolean {
+    const normalize = (s: string) =>
+        s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+
+    return normalize(letter1).toLowerCase() === normalize(letter2).toLowerCase();
+  }
+
+  normalizeLetterWithoutAccent(letter: string): string {
+    return letter.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   }
 }
 

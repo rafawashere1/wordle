@@ -66,7 +66,9 @@ class WordleView {
             const keys = keyboard.querySelectorAll('.key');
             keys.forEach(key => {
                 if (key instanceof HTMLButtonElement) {
+                    key.classList.remove('correct-letter');
                     key.style.backgroundColor = '#4C4347';
+                    key.style.color = 'White';
                 }
             });
         }
@@ -99,18 +101,23 @@ class WordleView {
 
     colorKeyboardKeys(validations: LetterValidation[]): void {
         const letterButtons = document.querySelectorAll('.key');
-
+    
         for (let i = 0; i < validations.length; i++) {
             const letter = this.wordleLines.getFullWord()[i].toUpperCase();
             const selectedButton = Array.from(letterButtons).find(button => button.getAttribute('data-letter') === letter);
-
+    
             if (!selectedButton || !(selectedButton instanceof HTMLButtonElement)) {
                 continue;
             }
-
+    
+            if (selectedButton.classList.contains('correct-letter')) {
+                continue;
+            }
+    
             switch (validations[i]) {
                 case LetterValidation.Correct:
                     selectedButton.style.backgroundColor = '#3AA394';
+                    selectedButton.classList.add('correct-letter');
                     break;
                 case LetterValidation.IncorrectPosition:
                     selectedButton.style.backgroundColor = '#D3AD69';
