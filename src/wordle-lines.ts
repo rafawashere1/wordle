@@ -56,20 +56,29 @@ export class WordleLines {
     return fullWord;
   }
 
-  colorLines(validations: LetterValidation[]): void {
+  colorLines(validations: LetterValidation[], secretWord: string, word: string): void {
     const lineIndex = this.currentLineIndex;
-
+  
     for (let i = 0; i < validations.length; i++) {
       const selectedLetter = this.lineLetters[lineIndex][i];
-
+  
       switch (validations[i]) {
-        case LetterValidation.Correct: selectedLetter.style.backgroundColor = '#3AA394'; break;
-        case LetterValidation.IncorrectPosition: selectedLetter.style.backgroundColor = '#D3AD69'; break;
-        case LetterValidation.NonExistent: selectedLetter.style.backgroundColor = '#312A2C'; break;
+        case LetterValidation.Correct:
+          selectedLetter.style.backgroundColor = '#3AA394';
+          selectedLetter.textContent = secretWord[i];
+          break;
+  
+        case LetterValidation.IncorrectPosition:
+          selectedLetter.style.backgroundColor = '#D3AD69';
+          break;
+  
+        case LetterValidation.NonExistent:
+          selectedLetter.style.backgroundColor = '#312A2C';
+          break;
       }
     }
   }
-
+  
   backspace(): void {
     if (this.currentIndex <= 0) return;
 

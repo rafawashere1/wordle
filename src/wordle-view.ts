@@ -86,7 +86,7 @@ class WordleView {
         const fullWord = this.wordleLines.getFullWord();
         const validations: LetterValidation[] = this.game.validateLetter(fullWord);
 
-        this.wordleLines.colorLines(validations);
+        this.wordleLines.colorLines(validations, this.game.secretWord, fullWord);
         this.colorKeyboardKeys(validations);
 
         this.game.attempts++;

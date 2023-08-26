@@ -45,6 +45,11 @@ export class Wordle {
 
   getRandomWord(): string {
     const words: string[] = [
+      "MELÃO",
+      "FOGÃO",
+      "LIMÃO",
+      "MÚMIA",
+      "FÚTIL",
       "MOLHO",
       "QUEDA",
       "SABOR",
