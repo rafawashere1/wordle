@@ -47,13 +47,13 @@ export class WordleLines {
             const selectedLetter = this.lineLetters[lineIndex][i];
             switch (validations[i]) {
                 case LetterValidation.Correct:
-                    selectedLetter.style.backgroundColor = 'LawnGreen';
+                    selectedLetter.style.backgroundColor = '#3AA394';
                     break;
                 case LetterValidation.IncorrectPosition:
-                    selectedLetter.style.backgroundColor = 'Goldenrod';
+                    selectedLetter.style.backgroundColor = '#D3AD69';
                     break;
                 case LetterValidation.NonExistent:
-                    selectedLetter.style.backgroundColor = 'Gray';
+                    selectedLetter.style.backgroundColor = '#312A2C';
                     break;
             }
         }

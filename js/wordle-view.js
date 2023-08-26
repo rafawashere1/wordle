@@ -83,13 +83,14 @@ class WordleView {
             }
             switch (validations[i]) {
                 case LetterValidation.Correct:
-                    selectedButton.style.backgroundColor = 'LawnGreen';
+                    selectedButton.style.backgroundColor = '#3AA394';
                     break;
                 case LetterValidation.IncorrectPosition:
-                    selectedButton.style.backgroundColor = 'Goldenrod';
+                    selectedButton.style.backgroundColor = '#D3AD69';
                     break;
                 case LetterValidation.NonExistent:
-                    selectedButton.style.backgroundColor = 'Gray';
+                    selectedButton.style.backgroundColor = '#594B4F';
+                    selectedButton.style.color = '#6E5C62';
                     break;
                 default:
                     selectedButton.style.backgroundColor = '';
