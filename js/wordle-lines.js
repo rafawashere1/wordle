@@ -41,13 +41,14 @@ export class WordleLines {
         }
         return fullWord;
     }
-    colorLines(validations) {
+    colorLines(validations, secretWord, word) {
         const lineIndex = this.currentLineIndex;
         for (let i = 0; i < validations.length; i++) {
             const selectedLetter = this.lineLetters[lineIndex][i];
             switch (validations[i]) {
                 case LetterValidation.Correct:
                     selectedLetter.style.backgroundColor = '#3AA394';
+                    selectedLetter.textContent = secretWord[i];
                     break;
                 case LetterValidation.IncorrectPosition:
                     selectedLetter.style.backgroundColor = '#D3AD69';
