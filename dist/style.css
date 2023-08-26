@@ -18,16 +18,16 @@ body {
 
 .grid-wordle {
   display: grid;
-  grid-template-rows: repeat(5, 65px);
-  gap: 7px;
+  grid-template-rows: repeat(5, 70px);
+  gap: 15px;
 
   margin-bottom: 2%;
 }
 
 .grid-wordle > .line {
   display: grid;
-  grid-template-columns: repeat(5, 65px);
-  gap: 7px;
+  grid-template-columns: repeat(5, 80px);
+  gap: 10px;
 }
 
 .grid-wordle > .line > .letter {
@@ -35,18 +35,19 @@ body {
   place-items: center;
   height: 100%;
 
+  border: 5px solid #4C4347;
   background-color: #615458;
   color: #ffffff;
-  border-radius: 3px;
+  border-radius: 8px;
 
   font-size: 22px;
   font-weight: 700;
 }
 
 .keyboard {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+  display: grid;
+  place-items: center;
+  height: 100%;
   margin-top: 20px;
 }
 
@@ -78,6 +79,14 @@ body {
   font-weight: 400;
   font-size: 18px;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 700,
+  'GRAD' 0,
+  'opsz' 48
 }
 
 .notification {
