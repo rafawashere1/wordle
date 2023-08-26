@@ -81,6 +81,10 @@ body {
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
+.correct-letter {
+  background-color: #3AA394 !important;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
