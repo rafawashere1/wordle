@@ -85,6 +85,19 @@ body {
   background-color: #3AA394 !important;
 }
 
+.correct-letter:hover {
+  background-color: #27c9b0 !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.incorrect-position {
+  background-color: #D3AD69 !important;
+}
+
+.incorrect-position:hover {
+  background-color: #e4a02c !important;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
   'FILL' 0,
