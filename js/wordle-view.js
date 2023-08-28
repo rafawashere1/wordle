@@ -44,6 +44,7 @@ class WordleView {
         keys.forEach(key => {
             if (key instanceof HTMLButtonElement) {
                 key.classList.remove('correct-letter');
+                key.classList.remove('incorrect-position');
                 key.style.backgroundColor = '';
                 key.style.color = 'White';
             }
@@ -77,11 +78,11 @@ class WordleView {
             if (selectedButton instanceof HTMLButtonElement && !selectedButton.classList.contains('correct-letter')) {
                 switch (validation) {
                     case LetterValidation.Correct:
-                        selectedButton.style.backgroundColor = '#3AA394';
+                        selectedButton.classList.remove('incorrect-position');
                         selectedButton.classList.add('correct-letter');
                         break;
                     case LetterValidation.IncorrectPosition:
-                        selectedButton.style.backgroundColor = '#D3AD69';
+                        selectedButton.classList.add('incorrect-position');
                         break;
                     case LetterValidation.NonExistent:
                         selectedButton.style.backgroundColor = '#594B4F';
