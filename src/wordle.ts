@@ -47,6 +47,15 @@ export class Wordle {
   getRandomWord(): string {
     const words: string[] = [
       "MELÃO",
+      "FOGÃO",
+      "LIMÃO",
+      "MÚMIA",
+      "FÚTIL",
+      "MOLHO",
+      "QUEDA",
+      "SALTO",
+      "TAMPA",
+      "VALOR",
     ];
 
     const randomIndex = Math.floor(Math.random() * words.length);
