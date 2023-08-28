@@ -1,6 +1,7 @@
 import { Wordle } from './wordle.js';
 import { WordleLines } from './wordle-lines.js'
 import { LetterValidation } from './letter-validation.js'
+import { Utils } from './utils.js';
 
 class WordleView {
     game: Wordle;
@@ -9,7 +10,6 @@ class WordleView {
     constructor() {
         this.game = new Wordle();
         this.wordleLines = new WordleLines();
-
         this.setEvents();
     }
 
@@ -104,7 +104,11 @@ class WordleView {
     
         for (let i = 0; i < validations.length; i++) {
             const letter = this.wordleLines.getFullWord()[i].toUpperCase();
-            const selectedButton = Array.from(letterButtons).find(button => button.getAttribute('data-letter') === letter);
+
+            const selectedButton = Array.from(letterButtons).find(button => {
+                const buttonLetter = button.getAttribute('data-letter');
+                return buttonLetter && Utils.areLettersEqualWithoutAccent(buttonLetter, letter);
+            });
     
             if (!selectedButton || !(selectedButton instanceof HTMLButtonElement)) {
                 continue;
@@ -164,6 +168,7 @@ class WordleView {
 
     enableKeyboard(): void {
         const keyboard = document.querySelector('.keyboard');
+
         if (keyboard) {
             const botoes = keyboard.querySelectorAll('.key');
             botoes.forEach(botao => {
@@ -174,6 +179,7 @@ class WordleView {
 
     disableKeyboard(): void {
         const keyboard = document.querySelector('.keyboard');
+
         if (keyboard) {
             const buttons = keyboard.querySelectorAll('.key');
             buttons.forEach(botao => {

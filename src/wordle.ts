@@ -1,4 +1,5 @@
 import { LetterValidation } from "./letter-validation.js";
+import { Utils } from "./utils.js";
 
 export class Wordle {
 
@@ -14,12 +15,12 @@ export class Wordle {
     const validations: LetterValidation[] = new Array<LetterValidation>(word.length);
 
     for (let i = 0; i < word.length; i++) {
-      if (this.areLettersEqualWithoutAccent(word[i], this.secretWord[i])) {
+      if (Utils.areLettersEqualWithoutAccent(word[i], this.secretWord[i])) {
         validations[i] = LetterValidation.Correct;
       } else {
         let found = false;
         for (const char of this.secretWord) {
-          if (this.areLettersEqualWithoutAccent(word[i], char)) {
+          if (Utils.areLettersEqualWithoutAccent(word[i], char)) {
             found = true;
             break;
           }
@@ -36,7 +37,7 @@ export class Wordle {
   }
 
   playerWon(word: string): boolean {
-    return this.areLettersEqualWithoutAccent(word, this.secretWord);
+    return Utils.areLettersEqualWithoutAccent(word, this.secretWord);
   }
 
   playerLost(): boolean {
@@ -46,45 +47,10 @@ export class Wordle {
   getRandomWord(): string {
     const words: string[] = [
       "MELÃO",
-      "FOGÃO",
-      "LIMÃO",
-      "MÚMIA",
-      "FÚTIL",
-      "MOLHO",
-      "QUEDA",
-      "SABOR",
-      "SALTO",
-      "TAMPA",
-      "VALOR",
-      "RISCO",
-      "BOLHA",
-      "PODER",
-      "IGUAL",
-      "CRIME",
-      "FORTE",
-      "MARCA",
-      "BRUTO",
-      "JUSTO",
-      "MALHA",
-      "PEDRA",
-      "COMER",
-      "DENTE",
-      "LIXAR",
     ];
 
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
-  }
-
-  areLettersEqualWithoutAccent(letter1: string, letter2: string): boolean {
-    const normalize = (s: string) =>
-      s.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
-
-    return normalize(letter1).toLowerCase() === normalize(letter2).toLowerCase();
-  }
-
-  normalizeLetterWithoutAccent(letter: string): string {
-    return letter.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
   }
 }
 
