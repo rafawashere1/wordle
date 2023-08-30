@@ -71,7 +71,7 @@ body {
 .key, .enter, .backspace {
   padding: 12px 25px;
   background-color: #4C4347;
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: 10px;
   cursor: pointer;
@@ -79,23 +79,6 @@ body {
   font-weight: 400;
   font-size: 18px;
   transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.correct-letter {
-  background-color: #3AA394 !important;
-}
-
-.correct-letter:hover {
-  background-color: #27c9b0 !important;
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-.incorrect-position {
-  background-color: #D3AD69 !important;
-}
-
-.incorrect-position:hover {
-  background-color: #e4a02c !important;
 }
 
 .material-symbols-outlined {
@@ -122,7 +105,7 @@ body {
   width: 150px;
 
   background-color: #3b3637;
-  color: white;
+  color: #ffffff;
 
   cursor: pointer;
 
@@ -136,4 +119,26 @@ body {
 .reset > button:hover {
   background-color: #464141;
   transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.correct-letter {
+  background-color: #3AA394 !important;
+}
+
+.correct-letter:hover {
+  background-color: #27c9b0 !important;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.incorrect-position {
+  background-color: #D3AD69 !important;
+}
+
+.incorrect-position:hover {
+  background-color: #e4a02c !important;
+}
+
+.non-existent {
+  background-Color: #594B4F;
+  color: #6E5C62;
 }

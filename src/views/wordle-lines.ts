@@ -1,4 +1,4 @@
-import { LetterValidation } from "./letter-validation.js";
+import { LetterValidation } from "./letter-validation";
 
 export class WordleLines {
   currentIndex: number;
@@ -99,5 +99,3 @@ export class WordleLines {
     });
   }
 }
-
-window.addEventListener('load', () => new WordleLines());

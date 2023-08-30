@@ -1,5 +1,5 @@
-import { LetterValidation } from "./letter-validation.js";
-import { Utils } from "./utils.js";
+import { LetterValidation } from "./letter-validation";
+import { Utils } from "./utils";
 
 export class Wordle {
 
@@ -47,20 +47,10 @@ export class Wordle {
   getRandomWord(): string {
     const words: string[] = [
       "MELÃO",
-      "FOGÃO",
-      "LIMÃO",
-      "MÚMIA",
-      "FÚTIL",
-      "MOLHO",
-      "QUEDA",
-      "SALTO",
-      "TAMPA",
-      "VALOR",
+      "FOGÃO"
     ];
 
     const randomIndex = Math.floor(Math.random() * words.length);
     return words[randomIndex];
   }
 }
-
-window.addEventListener('load', () => new Wordle());
